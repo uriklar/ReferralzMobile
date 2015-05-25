@@ -1,0 +1,18 @@
+<ion-view view-title="Sign in">
+  <ion-content class="padding">
+    <h1>{{business.name}}</h1>
+    <div>
+      <ul>
+        <li ng-repeat="business in businesses">
+          <span ng-click="toggleFromNetwork(business)">{{business.name}}</span>
+        </li>
+      </ul>
+      <ul>
+        <li ng-repeat="business in business.businesses_in_network">
+          <span ng-click="toggleFromNetwork(business)">{{business.name}}</span>
+        </li>
+      </ul>
+    </div>
+  </ion-content>
+</ion-view>
+

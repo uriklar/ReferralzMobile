@@ -1,4 +1,4 @@
-angular.module('starter')
+angular.module('referralzMobile')
 
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array

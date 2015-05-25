@@ -1,13 +1,6 @@
-angular.module('starter')
+angular.module('referralzMobile')
 
-.controller('DashCtrl', function($scope, Restangular) {
-	var baseAccounts = Restangular.all('businesses');
-
-	// This will query /accounts and return a promise.
-	baseAccounts.getList().then(function(accounts) {
-	  $scope.allAccounts = accounts;
-	});
-})
+.controller('DashCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   $scope.chats = Chats.all();

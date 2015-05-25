@@ -1,0 +1,22 @@
+<ion-view view-title="Sign in">
+  <ion-content class="padding">
+    <form>
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Name
+          <input type="text" ng-model="newBusiness.name" placeholder="Business Name" />
+        </label>
+      </div>
+      <div class="large-12 columns">
+        <select ng-options="category.id as category.name for category in categories" ng-model="newBusiness.category_id"></select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns">
+        <div class="button" ng-click="submit()">Submit</div>
+      </div>
+    </div>
+  </form>
+  </ion-content>
+</ion-view>

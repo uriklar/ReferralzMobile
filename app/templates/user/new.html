@@ -1,0 +1,22 @@
+<ion-view view-title="Sign in">
+  <form ng-submit="handleSignupBtnClicked()" role="form" ng-init="regForm = {}">
+    <ion-content class="padding">
+      <div>
+        <label>email</label>
+        <input type="email" name="email" ng-model="regForm.email" required="required" class="form-control"/>
+      </div>
+
+      <div>
+        <label>password</label>
+        <input type="password" name="password" ng-model="regForm.password" required="required" class="form-control"/>
+      </div>
+
+      <div>
+        <label>password confirmation</label>
+        <input type="password" name="password_confirmation" ng-model="regForm.password_confirmation" required="required" class="form-control"/>
+      </div>
+
+      <button type="submit" class="button">Register</button>
+    </ion-content>
+  </form>
+</ion-view>

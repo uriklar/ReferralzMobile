@@ -1,0 +1,25 @@
+<ion-view view-title="Sign in">
+  <form ng-submit="handleLoginBtnClicked()" role="form" ng-init="loginForm = {}">
+    <ion-content class="padding">
+      <div>
+        <label for="email">Email</label>
+        <input type="email"
+               name="email"
+               id="email"
+               ng-model="loginForm.email"
+               required="required">
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <input type="password"
+               name="password"
+               id="password"
+               ng-model="loginForm.password"
+               required="required">
+      </div>
+
+      <button type="submit">Sign in</button>
+    </ion-content>
+  </form>
+</ion-view>

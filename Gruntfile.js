@@ -57,6 +57,17 @@ module.exports = function (grunt) {
       }
     },
 
+    sass: {
+      options: {
+        sourceMap: true
+      },
+      dist: {
+        files: {
+          '<%= yeoman.app %>/<%= yeoman.styles %>/main.css': '<%= yeoman.app %>/<%= yeoman.styles %>/**/*.scss'
+        }
+      }
+    },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -157,7 +168,7 @@ module.exports = function (grunt) {
       }
     },
 
-    
+
 
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
@@ -488,6 +499,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('init', [
     'clean',
+    'sass',
     'ngconstant:development',
     'wiredep',
     'concurrent:server',
@@ -513,7 +525,7 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
-  grunt.registerTask('coverage', 
+  grunt.registerTask('coverage',
     ['karma:continuous',
     'connect:coverage:keepalive'
   ]);
