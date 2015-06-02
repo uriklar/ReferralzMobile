@@ -152,6 +152,7 @@ angular.module('referralzMobile', [
   RestangularProvider.setBaseUrl('http://localhost:3000/api/v1');
 
   $authProvider.configure({
-    apiUrl: 'http://localhost:3000/api/v1'
+    apiUrl: 'http://localhost:3000/api/v1',
+    //storage: 'localStorage'
   });
 });

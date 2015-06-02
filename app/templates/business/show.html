@@ -1,18 +1,33 @@
-<ion-view view-title="Sign in">
+<ion-view view-title="{{business.name}}">
   <ion-content class="padding">
-    <h1>{{business.name}}</h1>
-    <div>
-      <ul>
-        <li ng-repeat="business in businesses">
+      <div id="invite-container" ng-switch="!!newInvitation">
+        <form class="list" ng-switch-when="true">
+          <div class="item item-input-inset">
+            <label class="item-input-wrapper">
+              <input ng-model="newInvitation.recipient_phone" type="text" placeholder="Phone number">
+            </label>
+            <button class="button button-small" ng-click="submitInvitation()">
+              Invite
+            </button>
+          </div>
+        </form>
+        <div class="button button-block button-calm" ng-switch-default ng-click="showNewInvitationForm()">
+          Invite a business
+        </div>
+      </div>
+
+      <h3>Or choose from the list:</h3>
+
+      <ul class="list">
+        <li ng-repeat="business in businesses" class="item card">
           <span ng-click="toggleFromNetwork(business)">{{business.name}}</span>
         </li>
       </ul>
-      <ul>
-        <li ng-repeat="business in business.businesses_in_network">
-          <span ng-click="toggleFromNetwork(business)">{{business.name}}</span>
-        </li>
-      </ul>
-    </div>
+      <!--<ul>-->
+        <!--<li ng-repeat="business in business.businesses_in_network">-->
+          <!--<span ng-click="toggleFromNetwork(business)">{{business.name}}</span>-->
+        <!--</li>-->
+      <!--</ul>-->
   </ion-content>
 </ion-view>
 

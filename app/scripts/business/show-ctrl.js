@@ -3,6 +3,7 @@
 angular.module('referralzMobile')
   .controller('BusinessShowCtrl', function ($scope,businesses,business, Restangular) {
     var baseLink = Restangular.all('links');
+    var baseInvitation = Restangular.all('invitations');
 
     $scope.business = business;
     $scope.businesses = filterBusinesses(businesses,$scope.business);
@@ -29,4 +30,24 @@ angular.module('referralzMobile')
         return !_.contains(ids, b.id);
       });
     }
+
+    $scope.showNewInvitationForm = function() {
+      $scope.newInvitation = {
+        recipient_phone: ""
+      }
+    }
+
+    $scope.submitInvitation = function() {
+      baseInvitation
+        .post({ invitation: $scope.newInvitation })
+        .then(function(addedInvitation) {
+          console.log(addedInvitation);
+          $scope.newInvitation = null;
+        }, function(e){
+          console.log("there was an error");
+          console.log(e);
+        });
+    }
+
+
   });
