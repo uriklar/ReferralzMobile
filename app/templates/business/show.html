@@ -16,18 +16,22 @@
         </div>
       </div>
 
+      <div id="in-network">
+        <span ng-repeat="business in business.businesses_in_network"
+              ng-click="removeFromNetwork(business)">
+          {{business.name}},
+        </span>
+      </div>
       <h3>Or choose from the list:</h3>
 
       <ul class="list">
-        <li ng-repeat="business in businesses" class="item card">
-          <span ng-click="toggleFromNetwork(business)">{{business.name}}</span>
+        <!-- TODO: create a business card directive-->
+        <li ng-repeat="business in businesses"
+            ng-click="addToNetwork(business)"
+            class="item card">
+          <span >{{business.name}}</span>
         </li>
       </ul>
-      <!--<ul>-->
-        <!--<li ng-repeat="business in business.businesses_in_network">-->
-          <!--<span ng-click="toggleFromNetwork(business)">{{business.name}}</span>-->
-        <!--</li>-->
-      <!--</ul>-->
   </ion-content>
 </ion-view>
 

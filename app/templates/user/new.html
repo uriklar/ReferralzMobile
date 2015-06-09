@@ -1,4 +1,4 @@
-<ion-view view-title="Sign in">
+<ion-view view-title="Sign up">
   <form ng-submit="handleSignupBtnClicked()" role="form" ng-init="regForm = {}">
     <ion-content class="padding">
       <div>
@@ -16,7 +16,12 @@
         <input type="password" name="password_confirmation" ng-model="regForm.password_confirmation" required="required" class="form-control"/>
       </div>
 
-      <button type="submit" class="button">Register</button>
+      <div>
+        <label>invitation code</label>
+        <input type="text" name="invitation_code" ng-model="regForm.invitation_code" required="required" class="form-control"/>
+      </div>
+
+      <button type="submit" class="button">Sign up</button>
     </ion-content>
   </form>
 </ion-view>
