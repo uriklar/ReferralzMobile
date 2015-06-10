@@ -7,6 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('referralzMobile', [
   'ionic',
+  'config',
   'restangular',
   'ng-token-auth'
 ])
