@@ -1,1 +1,17 @@
 /* Empty. Add your own CSS if you like */
+/* Login
+==================================*/
+.app-icon {
+  background-color: #fff;
+  background: url('../images/crown.jpg') center;
+  background-size: cover;
+  border-radius: 50%;
+  height: 125px;
+  margin: 0 auto;
+  width: 125px;
+}
+
+.social-login {
+  position: fixed;
+  bottom: 0;
+}
