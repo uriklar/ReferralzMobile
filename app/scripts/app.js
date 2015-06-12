@@ -98,7 +98,13 @@ angular.module('referralzMobile', [
   .state('user-show',{
     url: '/user/{userId}',
     templateUrl: 'templates/user/show.html',
-    controller: 'UserShowCtrl'
+    controller: 'UserShowCtrl',
+    resolve: {
+      currentUser: function($auth) {
+        return $auth.validateUser();
+      }
+    }
+
   });
 
   // if none of the above states are matched, use this as the fallback

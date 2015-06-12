@@ -1,8 +1,16 @@
-<ion-view view-title="Sign in">
+<ion-view view-title="{{user.email}}">
     <ion-content class="padding">
       <a href="#/business/new" class="button">Add Business</a>
       <a ng-click="handleSignOutBtnClick()" class="button button-block">
         Sign out
       </a>
+
+      <ul class="list">
+        <!-- TODO: create a business card directive-->
+        <li ng-repeat="business in user.business.businesses_in_network"
+            class="item card">
+          <span >{{business.name}}</span>
+        </li>
+      </ul>
     </ion-content>
 </ion-view>
