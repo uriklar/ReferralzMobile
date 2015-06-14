@@ -223,6 +223,37 @@ module.exports = function (grunt) {
       }
     },
 
+    //traceur: {
+    //  options: {
+    //    sourceMaps: true,
+    //    experimental:true,  // Turn on all experimental features
+    //    blockBinding: true, // Turn on support for let and const
+    //    stripPrefix: ".temp/scripts"
+    //  },
+    //  all: {
+    //    files: [{
+    //      expand: true,
+    //      cwd: '<%= yeoman.app %>/<%= yeoman.scripts %>/',
+    //      dest: '.temp/<%= yeoman.scripts %>/',
+    //      src: '**/*.js'
+    //    }]
+    //  }
+    //},
+
+    babel: {
+      options: {
+        sourceMap: true
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/<%= yeoman.scripts %>/',
+          dest: '.temp/<%= yeoman.scripts %>/',
+          src: '**/*.js'
+        }]
+      }
+    },
+
     // Copies remaining files to places other tasks can use
     copy: {
       dist: {
@@ -500,6 +531,8 @@ module.exports = function (grunt) {
   grunt.registerTask('init', [
     'clean',
     'sass',
+    //'traceur',
+    'babel',
     'ngconstant:development',
     'wiredep',
     'concurrent:server',

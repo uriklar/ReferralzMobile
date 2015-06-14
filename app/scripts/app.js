@@ -14,7 +14,7 @@ angular.module('referralzMobile', [
   'ionMdInput'
 ])
 
-.run(function($ionicPlatform, $rootScope, $location) {
+.run(function($ionicPlatform, $rootScope, $location,$state) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -27,25 +27,32 @@ angular.module('referralzMobile', [
     }
 
     $rootScope.$on('auth:login-success', function(ev,user) {
-      $location.path('/user/' + user.id);
+      $state.go('home');
     });
     $rootScope.$on('auth:registration-email-success', function(ev,user) {
-      $location.path('/user/' + user.id);
+      $state.go('home');
+    });
+
+    $rootScope.$on( '$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
+        if(toState.name == 'home' && error.reason == 'unauthorized') {
+          $state.go('sign-in');
+        }
     });
   });
 })
 
 .config(function($stateProvider, $urlRouterProvider, RestangularProvider, $authProvider) {
 
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
   $stateProvider
-  .state('root',{
+  .state('home',{
       'url': '/',
-      templateUrl: '/templates/main.html',
-      controller: 'SessionNewCtrl'
+      templateUrl: '/templates/home/home.html',
+      controller: 'HomeCtrl',
+      resolve: {
+        auth: function ($auth) {
+          return $auth.validateUser();
+        }
+      }
     })
   .state('business-new', {
     url: '/business/new',
@@ -104,7 +111,6 @@ angular.module('referralzMobile', [
         return $auth.validateUser();
       }
     }
-
   });
 
   // if none of the above states are matched, use this as the fallback
